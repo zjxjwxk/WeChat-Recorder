@@ -16,19 +16,65 @@ import com.zjxjwxk.wechat.recorder.R;
  */
 public class AudioRecordButton extends android.support.v7.widget.AppCompatButton implements AudioStateListener {
 
-    private static final int DISTANCE_Y_CANCEL = 50;//滑动超过这个值，判断为取消录音
-    private static final int MAX_VOICE_LEVLE = 7;//最大音量
-    private static final int STATE_RECORD_NORMAL = 0;//正常状态
-    private static final int STATE_RECORDING = 1;//正在录音状态
-    private static final int STATE_WANT_CANCEL = 2;//试图取消录音状态
-    private static final int MSG_AUDIO_PREPARED = 3;//录音准备完成
-    private static final int MSG_VOICE_CHANGED = 4;//音量改变
-    private static final int MSG_DIALOG_DISMISS = 5;//对话框消失
+    /**
+     * 滑动超过这个值，判断为取消录音
+     */
+    private static final int DISTANCE_Y_CANCEL = 50;
 
-    private int mCurState = STATE_RECORD_NORMAL;//默认状态
-    private static boolean isRecording = false;//是否正在录音
-    private static float mTime;//录音时长
-    private boolean isReady;//是否触发 LongClick
+    /**
+     * 最大音量
+     */
+    private static final int MAX_VOICE_LEVEL = 7;
+
+    /**
+     * 正常状态
+     */
+    private static final int STATE_RECORD_NORMAL = 0;
+
+    /**
+     * 正在录音状态
+     */
+    private static final int STATE_RECORDING = 1;
+
+    /**
+     * 试图取消录音状态
+     */
+    private static final int STATE_WANT_CANCEL = 2;
+
+    /**
+     * 录音准备完成
+     */
+    private static final int MSG_AUDIO_PREPARED = 3;
+
+    /**
+     * 音量改变
+     */
+    private static final int MSG_VOICE_CHANGED = 4;
+
+    /**
+     * 对话框消失
+     */
+    private static final int MSG_DIALOG_DISMISS = 5;
+
+    /**
+     * 默认状态
+     */
+    private int mCurState = STATE_RECORD_NORMAL;
+
+    /**
+     * 是否正在录音
+     */
+    private static boolean isRecording = false;
+
+    /**
+     * 录音时长
+     */
+    private static float mTime;
+
+    /**
+     * 是否触发 LongClick
+     */
+    private boolean isReady;
 
     private static DialogManager mDialogManager;
     private static AudioManager mAudioManager;
@@ -65,7 +111,7 @@ public class AudioRecordButton extends android.support.v7.widget.AppCompatButton
                     break;
                 case MSG_VOICE_CHANGED:
                     // 获取音量
-                    mDialogManager.updateVoice(mAudioManager.getVoiceLevel(MAX_VOICE_LEVLE));
+                    mDialogManager.updateVoice(mAudioManager.getVoiceLevel(MAX_VOICE_LEVEL));
                     break;
                 case MSG_DIALOG_DISMISS:
                     mDialogManager.dismissDialog();
