@@ -18,7 +18,7 @@ public class DialogManager {
     private Context mContext;
     private ImageView mIcon;
     private ImageView mVoice;
-    private TextView mTvLable;
+    private TextView mTvLabel;
     private Dialog mDialog;
 
     DialogManager(Context context) {
@@ -36,7 +36,7 @@ public class DialogManager {
 
         mIcon = mDialog.findViewById(R.id.iv_dialog_icon);
         mVoice = mDialog.findViewById(R.id.iv_dialog_voice);
-        mTvLable = mDialog.findViewById(R.id.tv_dialog_recorder_label);
+        mTvLabel = mDialog.findViewById(R.id.tv_dialog_recorder_label);
 
         mDialog.show();
     }
@@ -48,10 +48,10 @@ public class DialogManager {
         if (mDialog != null && mDialog.isShowing()) {
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.VISIBLE);
-            mTvLable.setVisibility(View.VISIBLE);
+            mTvLabel.setVisibility(View.VISIBLE);
 
             mIcon.setImageResource(R.drawable.recorder);
-            mTvLable.setText("手指上滑，取消发送");
+            mTvLabel.setText("手指上滑，取消发送");
         }
     }
 
@@ -62,10 +62,10 @@ public class DialogManager {
         if (mDialog != null && mDialog.isShowing()) {
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.GONE);
-            mTvLable.setVisibility(View.VISIBLE);
+            mTvLabel.setVisibility(View.VISIBLE);
 
             mIcon.setImageResource(R.drawable.cancel);
-            mTvLable.setText("松开手指，取消发送");
+            mTvLabel.setText("松开手指，取消发送");
         }
     }
 
@@ -86,10 +86,10 @@ public class DialogManager {
         if (mDialog != null && mDialog.isShowing()) {
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.GONE);
-            mTvLable.setVisibility(View.VISIBLE);
+            mTvLabel.setVisibility(View.VISIBLE);
 
             mIcon.setImageResource(R.drawable.voice_to_short);
-            mTvLable.setText("录音过短");
+            mTvLabel.setText("录音过短");
         }
     }
 
