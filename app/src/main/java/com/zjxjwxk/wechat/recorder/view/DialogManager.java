@@ -21,14 +21,14 @@ public class DialogManager {
     private TextView mTvLable;
     private Dialog mDialog;
 
-    DialogManager(Context context){
+    DialogManager(Context context) {
         mContext = context;
     }
 
     /**
      * 显示 Dialog
      */
-    void showDialog(){
+    void showDialog() {
         mDialog = new Dialog(mContext, R.style.Theme_AudioDialog);
         @SuppressLint("InflateParams")
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_recorder, null);
@@ -45,7 +45,7 @@ public class DialogManager {
      * 正在录音时的状态
      */
     public void recording(){
-        if (mDialog != null && mDialog.isShowing()){
+        if (mDialog != null && mDialog.isShowing()) {
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.VISIBLE);
             mTvLable.setVisibility(View.VISIBLE);
@@ -58,7 +58,7 @@ public class DialogManager {
     /**
      * 试图取消 Dialog
      */
-    void wantToCancel(){
+    void wantToCancel() {
         if (mDialog != null && mDialog.isShowing()) {
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.GONE);
@@ -73,7 +73,7 @@ public class DialogManager {
      * 取消 Dialog
      */
     void dismissDialog() {
-        if (mDialog != null && mDialog.isShowing()){
+        if (mDialog != null && mDialog.isShowing()) {
             mDialog.dismiss();
             mDialog = null;
         }
@@ -83,7 +83,7 @@ public class DialogManager {
      * 录音过短
      */
     void tooShort() {
-        if (mDialog != null && mDialog.isShowing()){
+        if (mDialog != null && mDialog.isShowing()) {
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.GONE);
             mTvLable.setVisibility(View.VISIBLE);
