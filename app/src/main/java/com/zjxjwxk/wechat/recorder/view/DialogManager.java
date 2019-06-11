@@ -58,19 +58,21 @@ public class DialogManager {
     /**
      * 试图取消 Dialog
      */
-    void wantToCancel(){if (mDialog != null && mDialog.isShowing()){
-        mIcon.setVisibility(View.VISIBLE);
-        mVoice.setVisibility(View.GONE);
-        mTvLable.setVisibility(View.VISIBLE);
+    void wantToCancel(){
+        if (mDialog != null && mDialog.isShowing()) {
+            mIcon.setVisibility(View.VISIBLE);
+            mVoice.setVisibility(View.GONE);
+            mTvLable.setVisibility(View.VISIBLE);
 
-        mIcon.setImageResource(R.drawable.cancel);
-        mTvLable.setText("松开手指，取消发送");
-    }}
+            mIcon.setImageResource(R.drawable.cancel);
+            mTvLable.setText("松开手指，取消发送");
+        }
+    }
 
     /**
      * 取消 Dialog
      */
-    void dismissDialog(){
+    void dismissDialog() {
         if (mDialog != null && mDialog.isShowing()){
             mDialog.dismiss();
             mDialog = null;
@@ -80,7 +82,7 @@ public class DialogManager {
     /**
      * 录音过短
      */
-    void tooShort(){
+    void tooShort() {
         if (mDialog != null && mDialog.isShowing()){
             mIcon.setVisibility(View.VISIBLE);
             mVoice.setVisibility(View.GONE);
@@ -94,9 +96,11 @@ public class DialogManager {
     /**
      * 根据音量变化更新图标
      */
-    void updateVoice(int level){if (mDialog != null && mDialog.isShowing()){
-        //利用方法名获取资源 id
-        int resId = mContext.getResources().getIdentifier("v" + level, "drawable", mContext.getPackageName());
-        mVoice.setImageResource(resId);
-    }}
+    void updateVoice(int level) {
+        if (mDialog != null && mDialog.isShowing()) {
+            //利用方法名获取资源 id
+            int resId = mContext.getResources().getIdentifier("v" + level, "drawable", mContext.getPackageName());
+            mVoice.setImageResource(resId);
+        }
+    }
 }
